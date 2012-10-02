@@ -47,7 +47,7 @@ function obtenirNbOrganisations($connexion)
 
 function obtenirReqOrganisations()
 {
-   $req="select numero, nom, rue, cp, ville, count(*) as nbStages
+   $req="select numero, nom, rue, cp, ville, count(numeroOrganisation) as nbStages
          from organisation o left join stage s on o.numero = s.numeroOrganisation 
          group by numero, nom, rue, cp, ville
          order by nom";
