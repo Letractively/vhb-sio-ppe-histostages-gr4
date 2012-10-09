@@ -1,100 +1,93 @@
 <?php
 
-include("_gestionBase.inc.php"); 
+include("_gestionBase.inc.php");
 include("_controlesEtGestionErreurs.inc.php");
 
-// CONNEXION AU SERVEUR MYSQL PUIS SÃ‰LECTION DE LA BASE DE DONNÃ‰ES Hynos
+// CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES Hynos
 
 $tabErreurs = array();
 
 $connexion=connect();
 if (!$connexion)
 {
-   ajouterErreur($tabErreurs, "Echec de la connexion au serveur MySql");
-   afficherErreurs($tabErreurs);
-   exit();
+	ajouterErreur($tabErreurs, "Echec de la connexion au serveur MySql");
+	afficherErreurs($tabErreurs);
+	exit();
 }
 if (!selectBase($connexion))
 {
-   ajouterErreur($tabErreurs, "La base de donnÃ©es stsig est inexistante ou non accessible");
-   afficherErreurs($tabErreurs);
-   exit();
+	ajouterErreur($tabErreurs, "La base de données stsig est inexistante ou non accessible");
+	afficherErreurs($tabErreurs);
+	exit();
 }
 
-if ( !isset($_GET['numero']) ) 
+if ( !isset($_GET['numero']) )
 {
-   ajouterErreur($tabErreurs, "Absence de numÃ©ro pour l'organisation Ã  dÃ©tailler");
-   afficherErreurs($tabErreurs);
+	ajouterErreur($tabErreurs, "Absence de numéro pour l'organisation à détailler");
+	afficherErreurs($tabErreurs);
 }
 else
 {
 
-$numero=$_GET['numero'];  
+	$numero=$_GET['numero'];
 
-// OBTENIR LE DÃ‰TAIL DE L'ORGANISATION SÃ‰LECTIONNÃ‰E
+	// OBTENIR LE DÉTAIL DE L'ORGANISATION SÉLECTIONNÉE
+	if (!verifierIdOrganisation($connexion, $numero))
+	{
+		ajouterErreur($tabErreurs,"Organisation demandée invalide ou inexistante");
+		afficherErreurs($tabErreurs);
+	}
+	else
+	{
+		$lg=obtenirDetailOrganisation($connexion, $numero);
 
-$lg=obtenirDetailOrganisation($connexion, $numero);
 
-$nom=htmlspecialchars($lg['nom']);
-$rue=htmlspecialchars($lg['rue']);
-$cp=htmlspecialchars($lg['cp']);
-$ville=htmlspecialchars($lg['ville']);
-$tel=htmlspecialchars($lg['tel']);
-$email=htmlspecialchars($lg['email']);
-$urlSiteWeb= htmlspecialchars($lg['urlSiteWeb']);
-$libelleCat=htmlspecialchars($lg['libelle']);
+		$nom=htmlspecialchars($lg['nom']);
+		$rue=htmlspecialchars($lg['rue']);
+		$cp=htmlspecialchars($lg['cp']);
+		$ville=htmlspecialchars($lg['ville']);
+		$tel=htmlspecialchars($lg['tel']);
+		$email=htmlspecialchars($lg['email']);
+		$urlSiteWeb= htmlspecialchars($lg['urlSiteWeb']);
+		$libelleCat=htmlspecialchars($lg['libelle']);
 
-echo '
-<table width="80%" cellspacing="0" cellpadding="0" align="center" 
-class="tabNonQuadrille">
-   
-   <tr class="enteteTabNonQuad">
-      <td colspan="2">'.$nom.'</td>
-   </tr>
-   <tr class="ligneTabNonQuad">
-      <td class="intitule" width="20%"> Adresse: </td>
-      <td class="valeur">' .$rue.'<br />'
-        .$cp . '&nbsp;' . $ville . '
-      </td>
-   </tr>
-   <tr class="ligneTabNonQuad">
-      <td class="intitule"> LibellÃ© catÃ©gorie:</td>
-      <td class="valeur">'.$libelleCat.'</td>
-   </tr>
-   <tr class="ligneTabNonQuad">
-      <td class="intitule"> TÃ©lÃ©phone: </td>
-      <td class="valeur">'.$tel.'</td>
-   </tr>
-   <tr class="ligneTabNonQuad">
-      <td class="intitule"> Email:</td>
-      <td class="valeur">';
-    if (!empty($email)) {
-      echo  '<a href="mailto:'.$email.'">'. $email . '</a>';
-    }
-    echo '</td>
-   </tr> 
-   <tr class="ligneTabNonQuad">
-      <td class="intitule"> Site Web: </td>
-      <td class="valeur">';
-    if (!empty($urlSiteWeb)) {
-      echo  '<a href="http://'.$urlSiteWeb.'">'. $urlSiteWeb . '</a>';
-    }
-    echo '</td>
-   </tr>
-</table>
-<p class="liensFinPage">
-      <a href="accueil.php?page=listeOrganisations">Retour</a>
-</p>';
+		echo '
+		<table width="80%" cellspacing="0" cellpadding="0" align="center"
+		class="tabNonQuadrille">
+		 
+		<tr class="enteteTabNonQuad">
+		<td colspan="2">'.$nom.'</td>
+		</tr>
+		<tr class="ligneTabNonQuad">
+		<td class="intitule" width="20%"> Adresse: </td>
+		<td class="valeur">' .$rue.'<br />'
+		.$cp . '&nbsp;' . $ville . '
+		</td>
+		</tr>
+		<tr class="ligneTabNonQuad">
+		<td class="intitule"> Libellé catégorie:</td>
+		<td class="valeur">'.$libelleCat.'</td>
+		</tr>
+		<tr class="ligneTabNonQuad">
+		<td class="intitule"> Téléphone: </td>
+		<td class="valeur">'.$tel.'</td>
+		</tr>
+		<tr class="ligneTabNonQuad">
+		<td class="intitule"> Email:</td>
+		<td class="valeur">'.$email.'</td>
+		</tr>
+		<tr class="ligneTabNonQuad">
+		<td class="intitule"> Site Web: </td>
+		<td class="valeur">';
+		if (!empty($urlSiteWeb)) {
+			echo  '<a href="http://'.$urlSiteWeb.'">'. $urlSiteWeb . '</a>';
+		}
+		echo '</td>
+		</tr>
+		</table>
+		<p class="liensFinPage">
+		<a href="accueil.php?page=listeOrganisations">Retour</a>
+		</p>';
+	}
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-<!-- Je teste un truc -->
