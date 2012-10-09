@@ -67,7 +67,11 @@ class="tabNonQuadrille">
    </tr>
    <tr class="ligneTabNonQuad">
       <td class="intitule"> Email:</td>
-      <td class="valeur">'.$email.'</td>
+      <td class="valeur">';
+    if (!empty($email)) {
+      echo  '<a href="mailto:'.$email.'">'. $email . '</a>';
+    }
+    echo '</td>
    </tr> 
    <tr class="ligneTabNonQuad">
       <td class="intitule"> Site Web: </td>
