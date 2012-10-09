@@ -27,8 +27,7 @@ if (!selectBase($connexion))
 
 $nbOrga = obtenirNbOrganisations($connexion);
 echo '
-<table width="100%" cellspacing="0" cellpadding="0" align="center" 
-class="tabQuadrille">
+<table width="100%" cellspacing="0" cellpadding="0" class="tabQuadrille">
    <tr class="titreTabQuad">
       <td colspan="3">Liste des organisations (' . $nbOrga . ')</td>
    </tr>
