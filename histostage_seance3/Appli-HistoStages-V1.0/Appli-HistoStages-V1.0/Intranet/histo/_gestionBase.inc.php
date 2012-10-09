@@ -1,5 +1,12 @@
 <?php
 
+function idStageExiste($connexion, $idStage)
+{
+	$req="select id from stage where id=" . $idStage .";";
+	$rs=mysql_query($req, $connexion);
+	return mysql_num_rows($rs) > 0;	
+}
+
 // FONCTIONS DE CONNEXION
 
 function connect()
