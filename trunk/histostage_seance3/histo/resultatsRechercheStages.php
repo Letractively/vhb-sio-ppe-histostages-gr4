@@ -82,8 +82,7 @@ if ( $nbStages < 1 ) {
 else {
 
   echo '
-<table width="100%" cellspacing="0" cellpadding="0" align="center" 
-class="tabQuadrille">
+<table width="100%" cellspacing="0" cellpadding="0" class="tabQuadrille">
    <tr class="titreTabQuad">
       <td colspan="4">Liste des stages (' . $nbStages . ')</td>
    </tr>

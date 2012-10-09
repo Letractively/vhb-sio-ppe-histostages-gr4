@@ -3,6 +3,10 @@
     ul#menulist li ul : balise ul dans une balise li elle-même située à l'intérieur d'une
     balise ul d'identifiant menulist 
 */
+
+/* alignement du tableau tableau */
+table {margin:auto;}
+
 ul#menulist li ul { 
 	display:none;  /* les sous-listes ne sont pas affichées par défaut */
 }
@@ -121,7 +125,6 @@ body{
 .ligneTabQuad a:visited	{text-decoration:none ; color:#000066 ;}
 .ligneTabQuad a:hover		{text-decoration:none ; color:#FD4040 ;}
 
-
 /* Style du titre du tableau */
 .titreTabQuad {
   font-size : 12px; 
@@ -138,7 +141,8 @@ body{
   font-family : Verdana, arial, helvetica, sans-serif;  
   font-weight : bold ;
   color : #333333; 
-  background-color : #a7ada7; 
+  background-color : #a7ada7;
+  text-align : center; 
 }
 
 /* Style des cellules */
@@ -157,6 +161,10 @@ body{
 /* Style des cellules */
 .ligneTabNonQuad { font-size: 10px; font-family: Verdana, arial, helvetica, sans-serif; color: 
                #333333; background-color: #FFCC66 ; vertical-align:top;text-align:left}
+               
+/* Style des cellules de gauche des tableaux */
+.intitule {width:20% ;}
+
 
 /* Style des formulaires */
 #corpsForm {

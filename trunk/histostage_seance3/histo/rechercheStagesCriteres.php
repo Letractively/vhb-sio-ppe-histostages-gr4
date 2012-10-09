@@ -92,10 +92,11 @@ if (!selectBase($connexion))
       <option selected="selected" value="0">Aucune</option>
       <option value="développeur d'applications">Développeur d'applications </option>
       <option value="administrateur de réseaux locaux"> Administrateur de réseaux locaux </option>
-    </select> 
+    </select>
+    </p> 
     
     
-    </div>
+ </div>
     
     
     <div id="piedForm">

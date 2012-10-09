@@ -28,7 +28,6 @@ if ( !isset($_GET['numero']) )
 }
 else
 {
-
 	$numero=$_GET['numero'];
 
 	// OBTENIR LE DÉTAIL DE L'ORGANISATION SÉLECTIONNÉE
@@ -41,7 +40,6 @@ else
 	{
 		$lg=obtenirDetailOrganisation($connexion, $numero);
 
-
 		$nom=htmlspecialchars($lg['nom']);
 		$rue=htmlspecialchars($lg['rue']);
 		$cp=htmlspecialchars($lg['cp']);
@@ -52,24 +50,23 @@ else
 		$libelleCat=htmlspecialchars($lg['libelle']);
 
 		echo '
-		<table width="80%" cellspacing="0" cellpadding="0" align="center"
-		class="tabNonQuadrille">
+		<table width="80%" cellspacing="0" cellpadding="0" class="tabNonQuadrille">
 		 
 		<tr class="enteteTabNonQuad">
 		<td colspan="2">'.$nom.'</td>
 		</tr>
 		<tr class="ligneTabNonQuad">
-		<td class="intitule" width="20%"> Adresse: </td>
+		<td class="intitule"> Adresse: </td>
 		<td class="valeur">' .$rue.'<br />'
 		.$cp . '&nbsp;' . $ville . '
 		</td>
 		</tr>
 		<tr class="ligneTabNonQuad">
-		<td class="intitule"> Libellé catégorie:</td>
+		<td class="intitule"> LibellÃ© catÃ©gorie:</td>
 		<td class="valeur">'.$libelleCat.'</td>
 		</tr>
 		<tr class="ligneTabNonQuad">
-		<td class="intitule"> Téléphone: </td>
+		<td class="intitule"> TÃ©lÃ©phone: </td>
 		<td class="valeur">'.$tel.'</td>
 		</tr>
 		<tr class="ligneTabNonQuad">
