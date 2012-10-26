@@ -2,11 +2,23 @@
 
 function idStageExiste($connexion, $idStage)
 {
-	$req="select id from stage where id='" . $idStage ."';";
+	$req="select id from stage where id='" . $idStage ."'";
 	$rs=mysql_query($req, $connexion);
 	return mysql_num_rows($rs) > 0;
 }
 
+function insertEtudFromCSV($nom, $prenom, $option, $connexion) {
+	$req = "insert into etudiant(numero, nom, prenom, libelleOption) values('".(recupererIdMaxEtudiant($connexion)+1)."','".$prenom."','".$nom."','".$option."')";
+	$rs = mysql_query($req, $connexion);
+	return $rs;
+}
+
+function recupererIdMaxEtudiant($connexion){
+	$req = "select max(numero) as max from etudiant";
+	$rs = mysql_query($req, $connexion);
+	$lg= mysql_fetch_assoc($rs);
+	return $lg["max"];
+}
 // FONCTIONS DE CONNEXION
 
 function connect()
@@ -21,17 +33,17 @@ function selectBase($connexion)
 {
 	$bd="HistoStages";
 	$query="SET CHARACTER SET utf8";
-	// Modification du jeu de caractères de la connexion
+	// Modification du jeu de caractï¿½res de la connexion
 	$res=mysql_query($query, $connexion);
 	$ok=mysql_select_db($bd, $connexion);
 	return $ok;
 }
 
 /**
- * La fonction filtreChaineBD échappe les caractères spéciaux ayant
- * une signification précise pour le serveur MySQL
- * @param string $value : chaîne de caractères à échapper
- * @return string : chaîne de caractères échappée
+ * La fonction filtreChaineBD ï¿½chappe les caractï¿½res spï¿½ciaux ayant
+ * une signification prï¿½cise pour le serveur MySQL
+ * @param string $value : chaï¿½ne de caractï¿½res ï¿½ ï¿½chapper
+ * @return string : chaï¿½ne de caractï¿½res ï¿½chappï¿½e
  */
 function filtreChaineBD($value)
 {
