@@ -1,43 +1,12 @@
 <?php
-function obtenirNewId($connexion, $table) {
-	$req="SELECT Max(id) FROM ".$table.";";
-	$rs=mysql_query($req, $connexion);
-	$rows=mysql_fetch_array($rs);
-	return $rows[0]+1;
-}
-
-function lireDonneePost($nomDonnee, $valDefaut="")
-{
-	if ( isset($_POST[$nomDonnee]) )
-	{
-		$val = $_POST[$nomDonnee];
-	}
-	else
-	{
-		$val = $valDefaut;
-	}
-	return $val;
-}
 
 function idStageExiste($connexion, $idStage)
 {
-	$req="select id from stage where id='" . $idStage ."'";
+	$req="select id from stage where id='" . $idStage ."';";
 	$rs=mysql_query($req, $connexion);
 	return mysql_num_rows($rs) > 0;
 }
 
-function insertEtudFromCSV($nom, $prenom, $option, $connexion) {
-	$req = "insert into etudiant(numero, nom, prenom, libelleOption) values('".(recupererIdMaxEtudiant($connexion)+1)."','".$prenom."','".$nom."','".$option."')";
-	$rs = mysql_query($req, $connexion);
-	return $rs;
-}
-
-function recupererIdMaxEtudiant($connexion){
-	$req = "select max(numero) as max from etudiant";
-	$rs = mysql_query($req, $connexion);
-	$lg= mysql_fetch_assoc($rs);
-	return $lg["max"];
-}
 // FONCTIONS DE CONNEXION
 
 function connect()
@@ -52,17 +21,17 @@ function selectBase($connexion)
 {
 	$bd="HistoStages";
 	$query="SET CHARACTER SET utf8";
-	// Modification du jeu de caractï¿½res de la connexion
+	// Modification du jeu de caractères de la connexion
 	$res=mysql_query($query, $connexion);
 	$ok=mysql_select_db($bd, $connexion);
 	return $ok;
 }
 
 /**
- * La fonction filtreChaineBD ï¿½chappe les caractï¿½res spï¿½ciaux ayant
- * une signification prï¿½cise pour le serveur MySQL
- * @param string $value : chaï¿½ne de caractï¿½res ï¿½ ï¿½chapper
- * @return string : chaï¿½ne de caractï¿½res ï¿½chappï¿½e
+ * La fonction filtreChaineBD échappe les caractères spéciaux ayant
+ * une signification précise pour le serveur MySQL
+ * @param string $value : chaîne de caractères à échapper
+ * @return string : chaîne de caractères échappée
  */
 function filtreChaineBD($value)
 {
@@ -73,14 +42,7 @@ function filtreChaineBD($value)
 
 	return $value;
 }
-//FONCTIONS DE GESTION DES PERIODES
 
-function obtenirPeriode($connexion){
-	$req="select dateDeb, dateFin from periodestage;";
-	$rs = mysql_query($req, $connexion);
-	return $rs;
-
-}
 // FONCTIONS DE GESTION DES ORGANISATIONS
 function obtenirNbOrganisations($connexion)
 {
@@ -172,19 +134,6 @@ function obtenirDetailEtudStage($connexion, $id)
 	return mysql_fetch_array($rs);
 }
 
-function lireDonneeUrl($nomDonnee, $valDefaut="")
-{
-	if ( isset($_GET[$nomDonnee]) )
-	{
-		$val = $_GET[$nomDonnee];
-	}
-	else
-	{
-		$val = $valDefaut;
-	}
-	return $val;
-}
-
 function lireDonneePost($nomDonnee, $valDefaut="")
 {
 	if ( isset($_POST[$nomDonnee]) )
@@ -198,10 +147,19 @@ function lireDonneePost($nomDonnee, $valDefaut="")
 	return $val;
 }
 
-function getLastId($nomTable){
-
-	$last = "Select Max(id) From " . $nomtable . ";";
-	return $last;
+function obtenirNewId($connexion, $table) {
+	
+	$req="SELECT Max(numero) FROM ".$table.";";
+	$rs=mysql_query($req, $connexion);
+	$rows=mysql_fetch_array($rs);
+	return $rows[0]+1;
 }
 
+function obtenirIdCat ($connexion, $cat){
+	
+	$id = "SELECT id FROM categorie WHERE libelle='" . $cat . "';";
+	$rs = mysql_query($id, $connexion);
+	$rows=mysql_fetch_array($rs);
+	return $rows[0];
+}
 ?>
