@@ -1,4 +1,23 @@
 <?php
+function obtenirNewId($connexion, $table) {
+	$req="SELECT Max(id) FROM ".$table.";";
+	$rs=mysql_query($req, $connexion);
+	$rows=mysql_fetch_array($rs);
+	return $rows[0]+1;
+}
+
+function lireDonneePost($nomDonnee, $valDefaut="")
+{
+	if ( isset($_POST[$nomDonnee]) )
+	{
+		$val = $_POST[$nomDonnee];
+	}
+	else
+	{
+		$val = $valDefaut;
+	}
+	return $val;
+}
 
 function idStageExiste($connexion, $idStage)
 {
@@ -54,7 +73,14 @@ function filtreChaineBD($value)
 
 	return $value;
 }
+//FONCTIONS DE GESTION DES PERIODES
 
+function obtenirPeriode($connexion){
+	$req="select dateDeb, dateFin from periodestage;";
+	$rs = mysql_query($req, $connexion);
+	return $rs;
+
+}
 // FONCTIONS DE GESTION DES ORGANISATIONS
 function obtenirNbOrganisations($connexion)
 {

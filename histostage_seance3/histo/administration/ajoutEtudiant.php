@@ -15,10 +15,10 @@
                 </script>
         </head>
 <?php 
-include ('../histo/_gestionBase.inc.php');
-
-if (move_uploaded_file($_FILES["caseUpload"]["tmp_name"], "etudiant.csv")) {
-        $uploaded=true;
+include ('../_gestionBase.inc.php');
+$nomFichierUploade = $_FILES["caseUpload"]["name"];
+if (substr($nomFichierUploade, strlen($nomFichierUploade)-3, 3) === "csv" && move_uploaded_file($_FILES["caseUpload"]["tmp_name"], "etudiant.csv")) {
+		$uploaded=true;
         $connexion=connect();
         selectBase($connexion);
         $fichier = "etudiant.csv";
@@ -39,7 +39,7 @@ if (move_uploaded_file($_FILES["caseUpload"]["tmp_name"], "etudiant.csv")) {
 else {
         $uploaded=false;
 }?>
-        <body onload="redirection(5, 'formAjoutEtudiant.php');">
+        <body onload="redirection(5, 'formAjoutEtudiant.php');">       
                 <p id="paragraphe"><?php $msg=$uploaded?"Etudiants ajoutés":"Echec de l'ajout des étudiants"; echo $msg ?></p>
                 <script type="text/javascript">
                 var unTemps = 4;                
