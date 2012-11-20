@@ -31,22 +31,17 @@
         <div class="colonneAdmin">
                 <h3>Etudiants</h3>
                 <div>
-                        <br /><a href="ajoutEtudiant.php"><input type="button" value="Modifier" /></a><br /><br /><br />
-                        <a href=""><input type="button" value="Ajouter" /></a><br />
+                        <br /><a href="formAjoutEtudiant.php"><input type="button" value="Ajouter" /></a><br /><br /><br />
+                        <br /><br /><br />
+                </div>
+        </div>
+        <div class="colonneAdmin">
+                <h3>Période</h3>
+                <div>
+                        <br /><a href="ajoutPeriode.php"><input type="button" value="Ajouter" /></a><br /><br /><br />
+                        <br /><br /><br />
                 </div>
         </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php include('../includes/pied.html');?>

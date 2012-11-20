@@ -257,8 +257,8 @@ th.libelle {
 .colonneAdmin
 {
 	display: inline-block;
-	width: 32%;
-	max-width: 32%;
+	width: 24%;
+	max-width: 24%;
 	text-align: center;
 }
 .colonneAdmin h3
