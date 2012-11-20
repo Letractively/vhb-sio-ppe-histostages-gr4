@@ -172,4 +172,36 @@ function obtenirDetailEtudStage($connexion, $id)
 	return mysql_fetch_array($rs);
 }
 
+function lireDonneeUrl($nomDonnee, $valDefaut="")
+{
+	if ( isset($_GET[$nomDonnee]) )
+	{
+		$val = $_GET[$nomDonnee];
+	}
+	else
+	{
+		$val = $valDefaut;
+	}
+	return $val;
+}
+
+function lireDonneePost($nomDonnee, $valDefaut="")
+{
+	if ( isset($_POST[$nomDonnee]) )
+	{
+		$val = $_POST[$nomDonnee];
+	}
+	else
+	{
+		$val = $valDefaut;
+	}
+	return $val;
+}
+
+function getLastId($nomTable){
+
+	$last = "Select Max(id) From " . $nomtable . ";";
+	return $last;
+}
+
 ?>
