@@ -149,7 +149,7 @@ function lireDonneePost($nomDonnee, $valDefaut="")
 
 function obtenirNewId($connexion, $table) {
 	
-	$req="SELECT Max(numero) FROM ".$table.";";
+	$req="SELECT Max(id) FROM ".$table.";";
 	$rs=mysql_query($req, $connexion);
 	$rows=mysql_fetch_array($rs);
 	return $rows[0]+1;
