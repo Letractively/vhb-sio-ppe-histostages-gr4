@@ -180,7 +180,7 @@ switch ($etape)
 	
 	
 			</form>
-			<form action="accueil.txt" method="get">
+			<form action="accueilAdmin.php" method="get">
 				<input type="submit" value="Retour à l'accueil" name="boutonAnnuler" />
 		
 		</div>
