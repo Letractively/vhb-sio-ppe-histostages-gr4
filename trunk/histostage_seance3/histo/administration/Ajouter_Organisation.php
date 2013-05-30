@@ -4,24 +4,27 @@
   <head>
     <title>Site intranet de la section STS IG-SIO</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link href="styles.css" rel="stylesheet" type="text/css" />
-    <script src="menuCascade.js" type="text/javascript"></script>
+    <link href="../../styles.css" rel="stylesheet" type="text/css" />
+    <script src="../../menuCascade.js" type="text/javascript"></script>
   </head>
 <body>
-
-<?php include('../includes/entete.html');?>
-
-<?php include('../includes/menuGauche.html');?>
-	
+<?php 
+include('../includes/entete.html');
+include('../includes/menuGauche.html');
+?>
 	<div id="contenu">
 		<form id="formAjouterOrganisation" method="POST">
 		<p>
-		<label for="catégorie" accesskey="c">Catégorie :</label>
+
+		<label for="categorie" accesskey="c">Catégorie :</label>
+
 			<select name="cat" id="cat" size="1">
+
 			<option value="0" selected="selected">Indifférent</option>
+
 			<?php
 			
-				include ("_gestionBase.inc.php");
+				include ("../_gestionBase.inc.php");
 				$connexion= connect();
 				mysql_select_db(histostages);
 				$req="SELECT libelle FROM categorie;";
@@ -58,7 +61,7 @@
 			<input type="text" name="cp" id="cp" size="27" placeholder="Le code postal de l'organisation">
 		</p>
 		<p>
-		<label for="Telephone" accesskey="t">T�l�phone :</label>
+		<label for="Telephone" accesskey="t">Téléphone :</label>
 			<input  type="text" required placeholder="Le t�l�phone de l'organisation" pattern="[0-9]{10}" name="tel" id="tel" size="26">
 		</p>
 		<p>
@@ -108,5 +111,5 @@
 			
 		</form>
 	</div>
-	<?php include('includes/pied.html');?>
+	<?php include('../includes/pied.html');?>
 </body>
