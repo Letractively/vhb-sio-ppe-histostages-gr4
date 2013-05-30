@@ -43,6 +43,7 @@ echo '
    // BOUCLE SUR LES ORGANISATIONS
    while ($lg!=FALSE)
    {
+   	
       $nom=htmlspecialchars($lg['nom']);
       $num=htmlspecialchars($lg['numero']);
       $rue=htmlspecialchars($lg['rue']);
@@ -54,6 +55,7 @@ echo '
          <td><a href="accueil.php?page=detailOrganisation&amp;numero='.$num.'">'.$nom.'</a></td>
          <td>'. $rue .' '. $cp . ' '. $ville . '</td>
          <td>'. $nbStages . '</td>
+         <td><a href="/histostage_seance3/histo/administration/Modifier_Organisation.php?numero='.$num.'" title="Modifier Organisation">'. "Modifier cette organisation" .'</a> </td>
     </tr>';
 
     $lg=mysql_fetch_array($rs);
