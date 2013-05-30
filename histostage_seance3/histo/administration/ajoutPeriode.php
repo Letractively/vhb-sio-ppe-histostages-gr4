@@ -98,6 +98,7 @@ switch ($etape)
 				</select>
 				<p>
 					<input type="submit" name="etape" id="etape" value="Ajouter" />
+					<input type="reset" name="etape" id="etape" value="Reset" />
 	
 				</p>
 	
@@ -105,7 +106,7 @@ switch ($etape)
 			</form>
 			<form action="accueilAdmin.php" method="get">
 				<input type="submit" value="Retour à l'accueil" name="boutonAnnuler" />
-		
+			</form>
 		</div>
 	</div>
 </div>
