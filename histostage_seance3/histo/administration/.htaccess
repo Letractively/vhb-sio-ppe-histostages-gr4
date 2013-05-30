@@ -1,10 +1,10 @@
 AddDefaultCharset utf-8
 DirectoryIndex accueilAdmin.php
-AuthType Basic
 AuthName "Restricted Files"
+AuthType Basic
 # (Following line optional)
-AuthUserFile C:\xampp\password
-Require user Admin
+AuthUserFile C:\xampp\htdocs\histostage_seance3\histo\administration\.htpasswd
+Require valid-user
 <Files "ajoutEtudiant.php">
 Deny from all
 </Files>

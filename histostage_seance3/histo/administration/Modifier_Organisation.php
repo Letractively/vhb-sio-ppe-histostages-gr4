@@ -10,10 +10,10 @@
 <body>
 
 <?php
-include('includes/entete.html');
-include('includes/menuGauche.html');
-include("_gestionBase.inc.php"); 
-include("_controlesEtGestionErreurs.inc.php");
+include('../includes/entete.html');
+include('../includes/menuGauche.html');
+include("../_gestionBase.inc.php"); 
+include("../_controlesEtGestionErreurs.inc.php");
 
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
