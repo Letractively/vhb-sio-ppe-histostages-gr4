@@ -2,7 +2,8 @@
 
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
-
+include('./includes/entete.html');
+include('./includes/menuGauche.html');
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
 $tabErreurs = array();
@@ -55,7 +56,7 @@ echo '
          <td><a href="accueil.php?page=detailOrganisation&amp;numero='.$num.'">'.$nom.'</a></td>
          <td>'. $rue .' '. $cp . ' '. $ville . '</td>
          <td>'. $nbStages . '</td>
-         <td><a href="/histostage_seance3/histo/administration/Modifier_Organisation.php?numero='.$num.'" title="Modifier Organisation">'. "Modifier cette organisation" .'</a> </td>
+         <td><a href="./administration/Modifier_Organisation.php?numero='.$num.'" title="Modifier Organisation">'. "Modifier cette organisation" .'</a> </td>
     </tr>';
 
     $lg=mysql_fetch_array($rs);

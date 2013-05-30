@@ -17,15 +17,17 @@
         <div class="colonneAdmin">
                 <h3>Organisations</h3>
                 <div>
-                        <br /><a href="/histo/listeOrganisations.php"><input type="button" value="Modifier" /></a><br /><br /><br />
-                        <a href="Ajouter_Organisation.php"><input type="button" value="Ajouter" /></a><br />
+						<a href="Ajouter_Organisation.php"><input type="button" value="Ajouter" /></a><br />
+                        <br /><a href="/histostage_seance3/histo/listeOrganisations.php"><input type="button" value="Modifier" /></a><br /><br /><br />
+                        
+
                 </div>
         </div>
         <div class="colonneAdmin">
                 <h3>Contacts</h3>
                 <div>
-                        <br /><a href=""><input type="button" value="Modifier" /></a><br /><br /><br />
-                        <a href=""><input type="button" value="Ajouter" /></a><br />
+                        <br /><a href=""><input type="button" value="Ajouter" /></a><br /><br /><br />
+                        <a href=""><input type="button" value="Modifier" /></a><br />
                 </div>
         </div>
         <div class="colonneAdmin">

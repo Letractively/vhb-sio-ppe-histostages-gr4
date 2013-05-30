@@ -5,90 +5,14 @@
     <title>Ajout d'une période</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link href="../../styles.css" rel="stylesheet" type="text/css" />
-    <style>
-.enteteTabQuad {
-	font-size: 12px;
-	font-family: Verdana, arial, helvetica, sans-serif;
-	font-weight: bold;
-	color: #333333;
-	background-color: #a7ada7;
-}
 
-.enteteTab {
-	font-size: 12px;
-	font-family: Verdana, arial, helvetica, sans-serif;
-	font-weight: bold;
-	text-align: center;
-}
-
-.ligneTabQuad a:link {
-	text-decoration: none;
-	color: #333333;
-}
-
-.ligneTabQuad a:visited {
-	text-decoration: none;
-	color: #000066;
-}
-
-.ligneTabQuad a:hover {
-	text-decoration: none;
-	color: #FD4040;
-}
-
-/* Style du titre du tableau */
-.titreTabQuad {
-	font-size: 12px;
-	font-family: Verdana, arial, helvetica, sans-serif;
-	color: #eeeeee;
-	text-align: center;
-	font-weight: bold;
-	background-color: #666666;
-}
-
-.ligneTabQuad {
-	font-size: 12px;
-	font-family: Verdana, arial, helvetica, sans-serif;
-	color: #333333;
-	background-color: #FFCC66;
-	text-align: center;
-}
-
-/* Style des en-têtes d'un tableau non quadrillé*/
-.enteteTabNonQuad {
-	font-size: 12px;
-	font-family: Verdana, arial, helvetica, sans-serif;
-	font-weight: bold;
-	color: #333333;
-	background-color: #a7ada7;
-}
-
-/* Style des cellules */
-.ligneTabNonQuad {
-	font-size: 10px;
-	font-family: Verdana, arial, helvetica, sans-serif;
-	color: #333333;
-	background-color: #FFCC66;
-	vertical-align: top;
-	text-align: left
-}
-
-div {
-	float: left max-width:   100%;
-	border: black solid 1px;
-}
-</style>
     
     <script src="menuCascade.js" type="text/javascript"></script>
   </head>
   <body>
-<?php include('../includes/entete.html');?>
+<?php include('../includes/entete.html');
 
-<?php include('../includes/menuGauche.html');?>
-
-
-<?php 
-
+include('../includes/menuGauche.html'); 
 include("../_gestionBase.inc.php");
 
 
@@ -110,6 +34,7 @@ switch ($etape)
 		VALUES (".obtenirNewId($connexion, 'periodestage').",'".$dateDeb."','".$dateFin."','".$numAnneeForm ."');";
 		$rs=mysql_query($req, $connexion);
 	}
+
 	break;
 
 }
@@ -128,7 +53,7 @@ switch ($etape)
 			<td>Année de Formation</td>
 		</tr>
 	
-		<?php $sql = 'SELECT dateDeb, dateFin, numAnneeForm FROM periodestage';
+		<?php $sql = 'SELECT * FROM periodestage';
 	
 		// on lance la requète (mysql_query) et on impose un message d'erreur si la requète ne se passe pas bien (or die)
 		$req = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
@@ -140,10 +65,8 @@ switch ($etape)
 		<tr class="ligneTabQuad">
 			<td><?php echo $data['dateDeb'] ?>
 			</td>
-			<?php ;?>
 			<td><?php echo $data['dateFin']?>
 			</td>
-			<?php ;?>
 			<td><?php echo $data['numAnneeForm'] ?></td>
 		</tr>
 		<?php ;

@@ -9,15 +9,16 @@
   </head>
 <body>
 
-	<?php include('includes/entete.html');?>
-	<?php include('includes/menuGauche.html');?>
+<?php include('../includes/entete.html');?>
+
+<?php include('../includes/menuGauche.html');?>
 	
 	<div id="contenu">
 		<form id="formAjouterOrganisation" method="POST">
 		<p>
-		<label for="catégorie" accesskey="c">Catégorie :</label>
+		<label for="catÃ©gorie" accesskey="c">CatÃ©gorie :</label>
 			<select name="cat" id="cat" size="1">
-			<option value="0" selected="selected">Indifférent</option>
+			<option value="0" selected="selected">IndiffÃ©rent</option>
 			<?php
 			
 				include ("_gestionBase.inc.php");
@@ -57,8 +58,8 @@
 			<input type="text" name="cp" id="cp" size="27" placeholder="Le code postal de l'organisation">
 		</p>
 		<p>
-		<label for="Telephone" accesskey="t">Téléphone :</label>
-			<input  type="text" required placeholder="Le téléphone de l'organisation" pattern="[0-9]{10}" name="tel" id="tel" size="26">
+		<label for="Telephone" accesskey="t">Tï¿½lï¿½phone :</label>
+			<input  type="text" required placeholder="Le tï¿½lï¿½phone de l'organisation" pattern="[0-9]{10}" name="tel" id="tel" size="26">
 		</p>
 		<p>
 		<label for="fax" accesskey="f">Fax :</label>
