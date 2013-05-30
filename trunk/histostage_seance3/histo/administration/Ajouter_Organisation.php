@@ -62,7 +62,7 @@ include('../includes/menuGauche.html');
 		</p>
 		<p>
 		<label for="Telephone" accesskey="t">Téléphone :</label>
-			<input  type="text" required placeholder="Le t�l�phone de l'organisation" pattern="[0-9]{10}" name="tel" id="tel" size="26">
+			<input  type="text" required placeholder="Le téléphone de l'organisation" pattern="[0-9]{10}" name="tel" id="tel" size="26">
 		</p>
 		<p>
 		<label for="fax" accesskey="f">Fax :</label>

@@ -18,8 +18,8 @@
                 <h3>Organisations</h3>
                 <div>
 
-						<a href="Ajouter_Organisation.php"><input type="button" value="Ajouter" /></a><br />
-                        <br /><a href="/histostage_seance3/histo/listeOrganisations.php"><input type="button" value="Modifier" /></a><br /><br /><br />
+						<br /><a href="Ajouter_Organisation.php"><input type="button" value="Ajouter" /></a><br /><br />
+                        <br /><a href="/histostage_seance3/histo/listeOrganisations.php"><input type="button" value="Modifier" /></a>
                         
                 </div>
         </div>
