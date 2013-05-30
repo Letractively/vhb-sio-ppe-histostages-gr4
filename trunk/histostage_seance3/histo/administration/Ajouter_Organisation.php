@@ -110,6 +110,11 @@ include('../includes/menuGauche.html');
 		?>
 			
 		</form>
+		<form action="accueilAdmin.php" method="get">
+		<p>
+		<input type="submit" name="Etape" value="retour" id="Etape" >
+		</p>
+		</form>
 	</div>
 	<?php include('../includes/pied.html');?>
 </body>
