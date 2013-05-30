@@ -40,12 +40,13 @@ $nbOrga = obtenirNbOrganisations($connexion);
 echo '
 <table width="100%" cellspacing="0" cellpadding="0" class="tabQuadrille">
    <tr class="titreTabQuad">
-      <td colspan="3">Liste des organisations (' . $nbOrga . ')</td>
+      <td colspan="4">Liste des organisations (' . $nbOrga . ')</td>
    </tr>
    <tr class="enteteTabQuad">
       <td>Nom</td>
       <td>Adresse</td>
       <td>Nombre stages</td>
+      <td>Modifier</td>
    </tr>';
      
    $req=obtenirReqOrganisations();
