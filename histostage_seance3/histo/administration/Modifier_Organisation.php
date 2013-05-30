@@ -8,12 +8,15 @@
     <script src="../../menuCascade.js" type="text/javascript"></script>
   </head>
 <body>
-
-<?php
+<?php 
 include('../includes/entete.html');
 include('../includes/menuGauche.html');
-include("../_gestionBase.inc.php"); 
+include("../_gestionBase.inc.php");
 include("../_controlesEtGestionErreurs.inc.php");
+?>
+<div id=contenu>
+<?php
+
 
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
@@ -162,4 +165,10 @@ if (!selectBase($connexion))
 			}
 		?>
 	</form>
+	<form action="accueilAdmin.php" method="get">
+		<p>
+		<input type="submit" name="Etape" value="retour" id="Etape" >
+		</p>
+		</form>
+	</div>
 </body>
