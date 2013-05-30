@@ -4,8 +4,8 @@
   <head>
     <title>Site intranet de la section STS IG-SIO</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link href="styles.css" rel="stylesheet" type="text/css" />
-    <script src="menuCascade.js" type="text/javascript"></script>
+    <link href="../../styles.css" rel="stylesheet" type="text/css" />
+    <script src="../../menuCascade.js" type="text/javascript"></script>
   </head>
 <body>
 
